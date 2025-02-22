@@ -19,11 +19,7 @@ function App() {
 
   function GradientBackground({ children }) {
     return (
-      <div
-        className={`background-container ${
-          isMobile ? "gradient-background" : "video-background"
-        }`}
-      >
+      <div className="background-container">
         {isMobile ? (
           <div className="gradient-background" />
         ) : (
@@ -36,6 +32,10 @@ function App() {
       </div>
     );
   }
+
+  // <div className="gradient-background">
+  //   {children}
+  // </div>
 
   function renderSplash() {
     const handleClick = (e) => {
@@ -79,68 +79,36 @@ function App() {
     return (
       <GradientBackground>
         <Navbar />
-        <div
-          id="welcome"
-          className="section"
-          style={{
-            display: "flex",
-            flexDirection: "column", // Ensure vertical stacking
-            alignItems: "center", // Center horizontally
-            textAlign: "center",
-            padding: "20px",
-          }}
-        >
-          <h1>I'm Farzad</h1>
-
-          {/* Social media icons row */}
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              gap: "15px",
-              marginTop: "20px",
-            }}
-          >
-            <a
-              href="https://github.com/closezad"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FontAwesomeIcon icon={faGithub} size="2x" />
-            </a>
-            <a
-              href="https://linkedin.com/in/farzadrahman"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FontAwesomeIcon icon={faLinkedin} size="2x" />
-            </a>
-            <a
-              href="mailto:farzadrahman20@gmail.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FontAwesomeIcon icon={faEnvelope} size="2x" />
-            </a>
-            <a
-              href="https://instagram.com/closezad"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FontAwesomeIcon icon={faInstagram} size="2x" />
-            </a>
+        <div className="content">
+          <div id="welcome" className="section">
+            <h1>I'm Farzad</h1>
+            <div className="social-icons">
+              <a href="https://github.com/closezad" target="_blank">
+                <FontAwesomeIcon icon={faGithub} size="2x" />
+              </a>
+              <a href="https://linkedin.com/in/farzadrahman" target="_blank">
+                <FontAwesomeIcon icon={faLinkedin} size="2x" />
+              </a>
+              <a href="mailto:farzadrahman20@gmail.com" target="_blank">
+                <FontAwesomeIcon icon={faEnvelope} size="2x" />
+              </a>
+              <a href="https://instagram.com/closezad" target="_blank">
+                <FontAwesomeIcon icon={faInstagram} size="2x" />
+              </a>
+            </div>
           </div>
-        </div>
 
-        <div id="work" className="section">
-          <Timeline />
-        </div>
-        <div id="projects" className="section">
-          {/* <Gallery /> */}I'll add some projects here soon.
-        </div>
-        <div id="GameGallery" className="section">
-          {/* <Gallery /> */}I'll add the gallery here soon. Porting from my old
-          site
+          <div id="work" className="section">
+            <Timeline />
+          </div>
+
+          <div id="projects" className="section">
+            <p>I'll add some projects here soon.</p>
+          </div>
+
+          <div id="GameGallery" className="section">
+            <p>I'll add the gallery here soon. Porting from my old site</p>
+          </div>
         </div>
       </GradientBackground>
     );
