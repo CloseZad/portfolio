@@ -13,6 +13,8 @@ import {
 import { faEnvelope, faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import Timeline from "./components/Timeline";
 import Gallery from "./components/Gallery";
+import ProjectsCarousel from "./components/ProjectsCarousel";
+import "./components/ProjectsCarousel.css";
 
 function App() {
   const [page, setPage] = useState("splash");
@@ -132,10 +134,11 @@ function App() {
 
           <div id="projects" className="section">
             <h1>Projects</h1>
-            <p>
-              I'm currently updating this section with my latest projects. 
-              Check back soon to see some exciting work I've been developing!
+            <p style={{ marginBottom: '40px' }}>
+              Here are some of the projects I've worked on. Each represents a different aspect 
+              of my development journey and technical expertise.
             </p>
+            <ProjectsCarousel />
           </div>
 
           <div id="GameGallery" className="section">
