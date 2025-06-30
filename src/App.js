@@ -82,6 +82,11 @@ function App() {
         <Navbar />
         <div className="content">
           <div id="welcome" className="section">
+            <img 
+              src="/telephone.jpg" 
+              alt="Farzad Rahman" 
+              className="profile-photo"
+            />
             <h1>Hi, I'm Farzad</h1>
             <p>
               Welcome to my portfolio! I'm a passionate developer with experience in 
