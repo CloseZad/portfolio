@@ -1,54 +1,58 @@
-import React, { useState, useEffect } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronLeft, faChevronRight, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import React, { useState, useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faChevronLeft,
+  faChevronRight,
+  faExternalLinkAlt,
+} from "@fortawesome/free-solid-svg-icons";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 const projects = [
   {
     id: 1,
-    title: "Project Alpha",
-    description: "A full-stack web application built with React and Node.js. Features real-time data processing and modern UI/UX design.",
-    image: "https://images.pexels.com/photos/270348/pexels-photo-270348.jpeg?auto=compress&cs=tinysrgb&w=800",
-    githubUrl: "https://github.com/closezad/project-alpha",
-    liveUrl: "https://project-alpha-demo.com",
-    technologies: ["React", "Node.js", "MongoDB"]
+    title: "TopSpeedTracker",
+    description:
+      "A small app (that you can use for youself) for Assetto Corsa (racing simulator software) that tracks speed in-engine as well as your session's top speed achieved. Supports switching between imperial and metric units.",
+    image:
+      "https://images.pexels.com/photos/270348/pexels-photo-270348.jpeg?auto=compress&cs=tinysrgb&w=800",
+    githubUrl: "https://github.com/CloseZad/TopSpeedTracker",
+    liveUrl: "https://youtu.be/hLxgE1tyIVA",
+    technologies: ["Python", "Assetto Corsa", "Numpy"],
   },
   {
     id: 2,
-    title: "Mobile Game Engine",
-    description: "Custom game engine developed for mobile platforms with advanced physics simulation and cross-platform compatibility.",
-    image: "https://images.pexels.com/photos/442576/pexels-photo-442576.jpeg?auto=compress&cs=tinysrgb&w=800",
-    githubUrl: "https://github.com/closezad/mobile-game-engine",
+    title: "Tales of Nuiryn",
+    description:
+      "In June 2020, my friends and I entered a game jam (game hackathon) hosted by the University of Waterloo's Games Institute. I was one of the lead developers on our team where we somehow won an award. Personally, I think making an RPG for a game jam is a terrible idea.",
+    image:
+      "https://images.pexels.com/photos/442576/pexels-photo-442576.jpeg?auto=compress&cs=tinysrgb&w=800",
+    githubUrl: "https://github.com/CloseZad/GameJam2020-WON-AWARD-",
     liveUrl: null,
-    technologies: ["C++", "OpenGL", "Android SDK"]
+    technologies: ["C#", "Unity3D", "Java"],
   },
   {
     id: 3,
-    title: "AI Data Analyzer",
-    description: "Machine learning application that processes large datasets and provides intelligent insights through interactive visualizations.",
-    image: "https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=800",
-    githubUrl: "https://github.com/closezad/ai-data-analyzer",
-    liveUrl: "https://ai-analyzer-demo.com",
-    technologies: ["Python", "TensorFlow", "React"]
+    title: "Disgraph (Hack the North 2020 Submission)",
+    description:
+      "Wrote script functions for a discord bot that generates graphs from user input data based on graph style choice and details.",
+    image:
+      "https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=800",
+    githubUrl: "https://github.com/brandonnly/HTN-2020",
+    liveUrl: "https://devpost.com/software/disgraph",
+    technologies: ["Python", "Matplotlib", "Discord API"],
   },
   {
     id: 4,
-    title: "Robotics Control System",
-    description: "Advanced control system for autonomous robots with real-time path planning and obstacle avoidance capabilities.",
-    image: "https://images.pexels.com/photos/2599244/pexels-photo-2599244.jpeg?auto=compress&cs=tinysrgb&w=800",
-    githubUrl: "https://github.com/closezad/robotics-control",
-    liveUrl: null,
-    technologies: ["ROS", "C++", "Python"]
+    title: "chAD (EngHacks 2021 Submission)",
+    description:
+      "Designed social media monetization system via a discord bot that generates custom ads based on wishes of the server's owner. Curated for businesses looking to market in new spaces, and server owners looking to make ad-revenue.",
+    image:
+      "https://images.pexels.com/photos/2599244/pexels-photo-2599244.jpeg?auto=compress&cs=tinysrgb&w=800",
+    githubUrl: "https://github.com/joonsauce/EngHack2021",
+    liveUrl:
+      "https://devpost.com/software/chad-the-ad-bot-for-discord-servers?ref_content=my-projects-tab&ref_feature=my_projects",
+    technologies: ["Python", "Discord API", "Python"],
   },
-  {
-    id: 5,
-    title: "Cloud Infrastructure Tool",
-    description: "DevOps automation tool for managing cloud infrastructure with monitoring, scaling, and deployment capabilities.",
-    image: "https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=800",
-    githubUrl: "https://github.com/closezad/cloud-infra-tool",
-    liveUrl: "https://cloud-tool-demo.com",
-    technologies: ["Docker", "Kubernetes", "AWS"]
-  }
 ];
 
 export default function ProjectsCarousel() {
@@ -58,9 +62,9 @@ export default function ProjectsCarousel() {
   // Auto-play functionality
   useEffect(() => {
     if (!isAutoPlaying) return;
-    
+
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => 
+      setCurrentIndex((prevIndex) =>
         prevIndex === projects.length - 1 ? 0 : prevIndex + 1
       );
     }, 5000);
@@ -75,13 +79,17 @@ export default function ProjectsCarousel() {
   };
 
   const goToPrevious = () => {
-    setCurrentIndex(currentIndex === 0 ? projects.length - 1 : currentIndex - 1);
+    setCurrentIndex(
+      currentIndex === 0 ? projects.length - 1 : currentIndex - 1
+    );
     setIsAutoPlaying(false);
     setTimeout(() => setIsAutoPlaying(true), 10000);
   };
 
   const goToNext = () => {
-    setCurrentIndex(currentIndex === projects.length - 1 ? 0 : currentIndex + 1);
+    setCurrentIndex(
+      currentIndex === projects.length - 1 ? 0 : currentIndex + 1
+    );
     setIsAutoPlaying(false);
     setTimeout(() => setIsAutoPlaying(true), 10000);
   };
@@ -92,16 +100,16 @@ export default function ProjectsCarousel() {
     <div className="carousel-container">
       <div className="carousel-wrapper">
         {/* Navigation Arrows */}
-        <button 
-          className="carousel-nav carousel-nav-left" 
+        <button
+          className="carousel-nav carousel-nav-left"
           onClick={goToPrevious}
           aria-label="Previous project"
         >
           <FontAwesomeIcon icon={faChevronLeft} />
         </button>
 
-        <button 
-          className="carousel-nav carousel-nav-right" 
+        <button
+          className="carousel-nav carousel-nav-right"
           onClick={goToNext}
           aria-label="Next project"
         >
@@ -111,15 +119,17 @@ export default function ProjectsCarousel() {
         {/* Main Content */}
         <div className="carousel-content">
           <div className="carousel-image-container">
-            <img 
-              src={currentProject.image} 
+            <img
+              src={currentProject.image}
               alt={currentProject.title}
               className="carousel-image"
             />
             <div className="carousel-overlay">
               <div className="carousel-tech-stack">
                 {currentProject.technologies.map((tech, index) => (
-                  <span key={index} className="tech-tag">{tech}</span>
+                  <span key={index} className="tech-tag">
+                    {tech}
+                  </span>
                 ))}
               </div>
             </div>
@@ -128,9 +138,9 @@ export default function ProjectsCarousel() {
           <div className="carousel-info">
             <div className="carousel-header">
               <h3 className="carousel-title">
-                <a 
-                  href={currentProject.githubUrl} 
-                  target="_blank" 
+                <a
+                  href={currentProject.githubUrl}
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="title-link"
                 >
@@ -140,14 +150,12 @@ export default function ProjectsCarousel() {
               </h3>
             </div>
 
-            <p className="carousel-description">
-              {currentProject.description}
-            </p>
+            <p className="carousel-description">{currentProject.description}</p>
 
             <div className="carousel-links">
-              <a 
-                href={currentProject.githubUrl} 
-                target="_blank" 
+              <a
+                href={currentProject.githubUrl}
+                target="_blank"
                 rel="noopener noreferrer"
                 className="project-link github-link"
               >
@@ -155,9 +163,9 @@ export default function ProjectsCarousel() {
                 View Code
               </a>
               {currentProject.liveUrl && (
-                <a 
-                  href={currentProject.liveUrl} 
-                  target="_blank" 
+                <a
+                  href={currentProject.liveUrl}
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="project-link live-link"
                 >
@@ -174,7 +182,9 @@ export default function ProjectsCarousel() {
           {projects.map((_, index) => (
             <button
               key={index}
-              className={`carousel-dot ${index === currentIndex ? 'active' : ''}`}
+              className={`carousel-dot ${
+                index === currentIndex ? "active" : ""
+              }`}
               onClick={() => goToSlide(index)}
               aria-label={`Go to project ${index + 1}`}
             />
@@ -183,10 +193,10 @@ export default function ProjectsCarousel() {
 
         {/* Progress Bar */}
         <div className="carousel-progress">
-          <div 
+          <div
             className="carousel-progress-bar"
             style={{
-              width: `${((currentIndex + 1) / projects.length) * 100}%`
+              width: `${((currentIndex + 1) / projects.length) * 100}%`,
             }}
           />
         </div>

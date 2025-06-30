@@ -84,42 +84,43 @@ function App() {
         <Navbar />
         <div className="content">
           <div id="welcome" className="section">
-            <img 
-              src="/telephone.jpg" 
-              alt="Farzad Rahman" 
+            <img
+              src="/telephone.jpg"
+              alt="Farzad Rahman"
               className="profile-photo"
             />
             <h1>Hi, I'm Farzad</h1>
             <p>
-              Welcome to my portfolio! I'm a passionate developer with experience in 
-              full-stack development, testing, and robotics. Explore my journey and projects below.
+              This site is in no way a representation of myself nor my image,
+              but maybe you'd want to work with me after seeing this glorified
+              linktree
             </p>
             <div className="social-icons">
-              <a 
-                href="https://github.com/closezad" 
-                target="_blank" 
+              <a
+                href="https://github.com/closezad"
+                target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub Profile"
               >
                 <FontAwesomeIcon icon={faGithub} />
               </a>
-              <a 
-                href="https://linkedin.com/in/farzadrahman" 
-                target="_blank" 
+              <a
+                href="https://linkedin.com/in/farzadrahman"
+                target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn Profile"
               >
                 <FontAwesomeIcon icon={faLinkedin} />
               </a>
-              <a 
+              <a
                 href="mailto:farzadrahman20@gmail.com"
                 aria-label="Email Contact"
               >
                 <FontAwesomeIcon icon={faEnvelope} />
               </a>
-              <a 
-                href="https://instagram.com/closezad" 
-                target="_blank" 
+              <a
+                href="https://instagram.com/closezad"
+                target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram Profile"
               >
@@ -134,9 +135,10 @@ function App() {
 
           <div id="projects" className="section">
             <h1>Projects</h1>
-            <p style={{ marginBottom: '40px' }}>
-              Here are some of the projects I've worked on. Each represents a different aspect 
-              of my development journey and technical expertise.
+            <p style={{ marginBottom: "40px" }}>
+              Here are some of the projects I've worked on. Each represents a
+              different aspect of my development journey and technical
+              expertise.
             </p>
             <ProjectsCarousel />
           </div>
@@ -144,8 +146,9 @@ function App() {
           <div id="GameGallery" className="section">
             <h1>Game Gallery</h1>
             <p>
-              Coming soon! I'm porting my game gallery from my previous site. 
-              This will showcase various games and interactive projects I've created.
+              Coming soon! I'm porting my game gallery from my previous site.
+              This will showcase various games and interactive projects I've
+              created.
             </p>
           </div>
         </div>
@@ -176,22 +179,37 @@ function App() {
         {isMobile ? (
           <>
             <div className="menu-button">
-              <span style={{ color: 'white', fontWeight: 'bold' }}>Farzad Rahman</span>
+              <span style={{ color: "white", fontWeight: "bold" }}>
+                Farzad Rahman
+              </span>
               <button
                 className="dropbtn"
                 onClick={toggleDropdown}
                 aria-label="Toggle navigation menu"
               >
                 <FontAwesomeIcon icon={showDropdown ? faTimes : faBars} />
-                <span>{showDropdown ? 'Close' : 'Menu'}</span>
+                <span>{showDropdown ? "Close" : "Menu"}</span>
               </button>
             </div>
-            <div className={`dropdown-content ${showDropdown ? 'show' : ''}`}>
-              <a href="#welcome" onClick={handleLinkClick}>Welcome</a>
-              <a href="#work" onClick={handleLinkClick}>Work Experience</a>
-              <a href="#projects" onClick={handleLinkClick}>Projects</a>
-              <a href="#GameGallery" onClick={handleLinkClick}>Game Gallery</a>
-              <a href="/RESUME2025.pdf" target="_blank" rel="noopener noreferrer" onClick={handleLinkClick}>
+            <div className={`dropdown-content ${showDropdown ? "show" : ""}`}>
+              <a href="#welcome" onClick={handleLinkClick}>
+                Welcome
+              </a>
+              <a href="#work" onClick={handleLinkClick}>
+                Work Experience
+              </a>
+              <a href="#projects" onClick={handleLinkClick}>
+                Projects
+              </a>
+              <a href="#GameGallery" onClick={handleLinkClick}>
+                Game Gallery
+              </a>
+              <a
+                href="/RESUME2025.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={handleLinkClick}
+              >
                 Resume
               </a>
             </div>
@@ -216,24 +234,26 @@ function App() {
       {page === "splash" && renderSplash()}
       {page === "" && renderPage()}
       {page !== "" && page !== "splash" && (
-        <div style={{ 
-          position: 'fixed', 
-          top: '20px', 
-          left: '20px', 
-          zIndex: 1001,
-          background: 'rgba(0,0,0,0.8)',
-          padding: '10px 20px',
-          borderRadius: '8px'
-        }}>
+        <div
+          style={{
+            position: "fixed",
+            top: "20px",
+            left: "20px",
+            zIndex: 1001,
+            background: "rgba(0,0,0,0.8)",
+            padding: "10px 20px",
+            borderRadius: "8px",
+          }}
+        >
           <button
             onClick={() => setPage("")}
             style={{
-              background: 'none',
-              border: 'none',
-              color: 'white',
-              cursor: 'pointer',
-              fontSize: '16px',
-              fontWeight: 'bold'
+              background: "none",
+              border: "none",
+              color: "white",
+              cursor: "pointer",
+              fontSize: "16px",
+              fontWeight: "bold",
             }}
           >
             ← Back to Portfolio
