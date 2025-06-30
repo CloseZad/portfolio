@@ -85,7 +85,7 @@ function App() {
         <div className="content">
           <div id="welcome" className="section">
             <img
-              src="/telephone.jpg"
+              src="https://lh3.googleusercontent.com/pw/AP1GczNznBJhEmOgbtoMo1RgZJETqZVUiALT79ORzzBbyAHbuEIHj86vkcAcun13FE1bB945j9ASeCmEbiPq8zBq8ieTuhomfc7KJs-Il_5-nvI_H8vJKJXPxtf6GhDO57aLYSzjjCw2SSIs8NQtGbQTGQAQXg=w1168-h1556-s-no-gm?authuser=0"
               alt="Farzad Rahman"
               className="profile-photo"
             />
@@ -205,7 +205,7 @@ function App() {
                 Game Gallery
               </a>
               <a
-                href="/RESUME2025.pdf"
+                href="/Updated.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={handleLinkClick}
