@@ -13,8 +13,7 @@ const projects = [
     title: "TopSpeedTracker",
     description:
       "A small app (that you can use for youself) for Assetto Corsa (racing simulator software) that tracks speed in-engine as well as your session's top speed achieved. Supports switching between imperial and metric units.",
-    image:
-      "https://images.pexels.com/photos/270348/pexels-photo-270348.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "/Screenshot 2025-06-30 at 1.03.43 AM.png",
     githubUrl: "https://github.com/CloseZad/TopSpeedTracker",
     liveUrl: "https://youtu.be/hLxgE1tyIVA",
     technologies: ["Python", "Assetto Corsa", "Numpy"],
