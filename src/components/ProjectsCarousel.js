@@ -24,7 +24,7 @@ const projects = [
     description:
       "In June 2020, my friends and I entered a game jam (game hackathon) hosted by the University of Waterloo's Games Institute. I was one of the lead developers on our team where we somehow won an award. Personally, I think making an RPG for a game jam is a terrible idea.",
     image:
-      "https://images.pexels.com/photos/442576/pexels-photo-442576.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "https://github.com/CloseZad/oldPortfolio/blob/main/src/images/Winner.jpg?raw=true",
     githubUrl: "https://github.com/CloseZad/GameJam2020-WON-AWARD-",
     liveUrl: null,
     technologies: ["C#", "Unity3D", "Java"],
@@ -35,7 +35,7 @@ const projects = [
     description:
       "Wrote script functions for a discord bot that generates graphs from user input data based on graph style choice and details.",
     image:
-      "https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "https://github.com/CloseZad/oldPortfolio/blob/main/src/images/DisGraph.png?raw=true",
     githubUrl: "https://github.com/brandonnly/HTN-2020",
     liveUrl: "https://devpost.com/software/disgraph",
     technologies: ["Python", "Matplotlib", "Discord API"],
@@ -45,8 +45,7 @@ const projects = [
     title: "chAD (EngHacks 2021 Submission)",
     description:
       "Designed social media monetization system via a discord bot that generates custom ads based on wishes of the server's owner. Curated for businesses looking to market in new spaces, and server owners looking to make ad-revenue.",
-    image:
-      "https://images.pexels.com/photos/2599244/pexels-photo-2599244.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "https://tyseer2335.github.io/chAD-Bot/images/logo.png",
     githubUrl: "https://github.com/joonsauce/EngHack2021",
     liveUrl:
       "https://devpost.com/software/chad-the-ad-bot-for-discord-servers?ref_content=my-projects-tab&ref_feature=my_projects",
