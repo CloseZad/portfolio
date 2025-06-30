@@ -15,6 +15,7 @@ import Timeline from "./components/Timeline";
 import Gallery from "./components/Gallery";
 import ProjectsCarousel from "./components/ProjectsCarousel";
 import "./components/ProjectsCarousel.css";
+import resume from "./Updated.pdf";
 
 function App() {
   const [page, setPage] = useState("splash");
@@ -205,7 +206,7 @@ function App() {
                 Game Gallery
               </a>
               <a
-                href="/Updated.pdf"
+                href={resume}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={handleLinkClick}
@@ -220,7 +221,7 @@ function App() {
             <a href="#work">Work Experience</a>
             <a href="#projects">Projects</a>
             <a href="#GameGallery">Game Gallery</a>
-            <a href="/RESUME2025.pdf" target="_blank" rel="noopener noreferrer">
+            <a href={resume} target="_blank" rel="noopener noreferrer">
               Resume
             </a>
           </div>
