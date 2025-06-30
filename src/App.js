@@ -10,7 +10,7 @@ import {
   faLinkedin,
   faGithub,
 } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import Timeline from "./components/Timeline";
 import Gallery from "./components/Gallery";
 
@@ -33,47 +33,48 @@ function App() {
     );
   }
 
-  // <div className="gradient-background">
-  //   {children}
-  // </div>
-
   function renderSplash() {
     const handleClick = (e) => {
+      e.preventDefault();
       setPage("");
     };
 
-    return (
-      <div className="header-wrapper">
-        <div className="main-info">
-          <button className="enter-button" onClick={handleClick}>
-            <h1>Enter</h1>
-          </button>
+    const checkPw = (e) => {
+      e.preventDefault();
+      const answer = document.getElementById("password").value;
 
-          <form onSubmit={checkPw} className="password-form">
-            <input
-              id="password"
-              name="password"
-              type="password"
-              className="password-input"
-              placeholder="Enter your password"
-            />
-            <button className="password-button">Enter with a password</button>
-          </form>
+      if (answer === "PERSONSPECIFIED") {
+        setPage("PERSONSPECIFIED");
+      } else {
+        setPage("");
+      }
+    };
+
+    return (
+      <GradientBackground>
+        <div className="header-wrapper">
+          <div className="main-info">
+            <button className="enter-button" onClick={handleClick}>
+              <h1>Enter Portfolio</h1>
+            </button>
+
+            <form onSubmit={checkPw} className="password-form">
+              <input
+                id="password"
+                name="password"
+                type="password"
+                className="password-input"
+                placeholder="Enter special access code"
+              />
+              <button type="submit" className="password-button">
+                Enter with Password
+              </button>
+            </form>
+          </div>
         </div>
-      </div>
+      </GradientBackground>
     );
   }
-
-  const checkPw = () => {
-    // gets the current input value
-    const answer = document.getElementById("password").value;
-
-    if (answer === "PERSONSPECIFIED") {
-      setPage("PERSONSPECIFIED");
-    } else {
-      setPage("");
-    }
-  };
 
   function renderPage() {
     return (
@@ -81,19 +82,41 @@ function App() {
         <Navbar />
         <div className="content">
           <div id="welcome" className="section">
-            <h1>I'm Farzad</h1>
+            <h1>Hi, I'm Farzad</h1>
+            <p>
+              Welcome to my portfolio! I'm a passionate developer with experience in 
+              full-stack development, testing, and robotics. Explore my journey and projects below.
+            </p>
             <div className="social-icons">
-              <a href="https://github.com/closezad" target="_blank">
-                <FontAwesomeIcon icon={faGithub} size="2x" />
+              <a 
+                href="https://github.com/closezad" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="GitHub Profile"
+              >
+                <FontAwesomeIcon icon={faGithub} />
               </a>
-              <a href="https://linkedin.com/in/farzadrahman" target="_blank">
-                <FontAwesomeIcon icon={faLinkedin} size="2x" />
+              <a 
+                href="https://linkedin.com/in/farzadrahman" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="LinkedIn Profile"
+              >
+                <FontAwesomeIcon icon={faLinkedin} />
               </a>
-              <a href="mailto:farzadrahman20@gmail.com" target="_blank">
-                <FontAwesomeIcon icon={faEnvelope} size="2x" />
+              <a 
+                href="mailto:farzadrahman20@gmail.com"
+                aria-label="Email Contact"
+              >
+                <FontAwesomeIcon icon={faEnvelope} />
               </a>
-              <a href="https://instagram.com/closezad" target="_blank">
-                <FontAwesomeIcon icon={faInstagram} size="2x" />
+              <a 
+                href="https://instagram.com/closezad" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="Instagram Profile"
+              >
+                <FontAwesomeIcon icon={faInstagram} />
               </a>
             </div>
           </div>
@@ -103,11 +126,19 @@ function App() {
           </div>
 
           <div id="projects" className="section">
-            <p>I'll add some projects here soon.</p>
+            <h1>Projects</h1>
+            <p>
+              I'm currently updating this section with my latest projects. 
+              Check back soon to see some exciting work I've been developing!
+            </p>
           </div>
 
           <div id="GameGallery" className="section">
-            <p>I'll add the gallery here soon. Porting from my old site</p>
+            <h1>Game Gallery</h1>
+            <p>
+              Coming soon! I'm porting my game gallery from my previous site. 
+              This will showcase various games and interactive projects I've created.
+            </p>
           </div>
         </div>
       </GradientBackground>
@@ -117,33 +148,55 @@ function App() {
   function Navbar() {
     const [showDropdown, setShowDropdown] = useState(false);
 
+    const toggleDropdown = () => {
+      setShowDropdown(!showDropdown);
+    };
+
+    const closeDropdown = () => {
+      setShowDropdown(false);
+    };
+
+    // Close dropdown when clicking on a link
+    const handleLinkClick = () => {
+      if (isMobile) {
+        setShowDropdown(false);
+      }
+    };
+
     return (
       <nav className="navbar">
         {isMobile ? (
           <>
-            <button
-              className="dropbtn"
-              onClick={() => setShowDropdown(!showDropdown)}
-            >
-              ☰ Menu
-            </button>
-            {showDropdown && (
-              <div className="dropdown-content">
-                <a href="#welcome">Welcome</a>
-                <a href="#work">Work</a>
-                <a href="#projects">Projects</a>
-                <a href="#GameGallery">GameGallery</a>
-                <a href="/RESUME2025.pdf">Resume</a>
-              </div>
-            )}
+            <div className="menu-button">
+              <span style={{ color: 'white', fontWeight: 'bold' }}>Farzad Rahman</span>
+              <button
+                className="dropbtn"
+                onClick={toggleDropdown}
+                aria-label="Toggle navigation menu"
+              >
+                <FontAwesomeIcon icon={showDropdown ? faTimes : faBars} />
+                <span>{showDropdown ? 'Close' : 'Menu'}</span>
+              </button>
+            </div>
+            <div className={`dropdown-content ${showDropdown ? 'show' : ''}`}>
+              <a href="#welcome" onClick={handleLinkClick}>Welcome</a>
+              <a href="#work" onClick={handleLinkClick}>Work Experience</a>
+              <a href="#projects" onClick={handleLinkClick}>Projects</a>
+              <a href="#GameGallery" onClick={handleLinkClick}>Game Gallery</a>
+              <a href="/RESUME2025.pdf" target="_blank" rel="noopener noreferrer" onClick={handleLinkClick}>
+                Resume
+              </a>
+            </div>
           </>
         ) : (
           <div className="navbar-content">
             <a href="#welcome">Welcome</a>
-            <a href="#work">Work</a>
+            <a href="#work">Work Experience</a>
             <a href="#projects">Projects</a>
-            <a href="#GameGallery">GameGallery</a>
-            <a href="/RESUME2025.pdf">Resume</a>
+            <a href="#GameGallery">Game Gallery</a>
+            <a href="/RESUME2025.pdf" target="_blank" rel="noopener noreferrer">
+              Resume
+            </a>
           </div>
         )}
       </nav>
@@ -153,20 +206,31 @@ function App() {
   return (
     <>
       {page === "splash" && renderSplash()}
-      {/* {page === "" && GradientBackground()} */}
       {page === "" && renderPage()}
-
-      {page === "" && <h1>status: home</h1> &&
-        console.log(isMobile ? "User is on mobile" : "User is on desktop")}
-
-      {page != "" && page != "splash" && (
-        <button
-          onClick={function () {
-            return setPage("");
-          }}
-        >
-          <h1>BACK</h1>
-        </button>
+      {page !== "" && page !== "splash" && (
+        <div style={{ 
+          position: 'fixed', 
+          top: '20px', 
+          left: '20px', 
+          zIndex: 1001,
+          background: 'rgba(0,0,0,0.8)',
+          padding: '10px 20px',
+          borderRadius: '8px'
+        }}>
+          <button
+            onClick={() => setPage("")}
+            style={{
+              background: 'none',
+              border: 'none',
+              color: 'white',
+              cursor: 'pointer',
+              fontSize: '16px',
+              fontWeight: 'bold'
+            }}
+          >
+            ← Back to Portfolio
+          </button>
+        </div>
       )}
     </>
   );
