@@ -16,6 +16,7 @@ import Gallery from "./components/Gallery";
 import ProjectsCarousel from "./components/ProjectsCarousel";
 import "./components/ProjectsCarousel.css";
 import resume from "./Updated.pdf";
+import resume2 from "./UpdatedHW.pdf";
 
 function App() {
   const [page, setPage] = useState("splash");
@@ -128,6 +129,26 @@ function App() {
                 <FontAwesomeIcon icon={faInstagram} />
               </a>
             </div>
+            <div className="resume-buttons">
+              <a
+                href={resume}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="resume-button"
+                style={{ padding: "0 15px" }} // Add horizontal padding
+              >
+                Software Resume
+              </a>
+              <a
+                href={resume2}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="resume-button"
+                style={{ padding: "0 15px" }} // Add horizontal padding
+              >
+                Hardware Resume
+              </a>
+            </div>
           </div>
 
           <div id="work" className="section">
@@ -205,14 +226,6 @@ function App() {
               <a href="#GameGallery" onClick={handleLinkClick}>
                 Game Gallery
               </a>
-              <a
-                href={resume}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={handleLinkClick}
-              >
-                Resume
-              </a>
             </div>
           </>
         ) : (
@@ -221,9 +234,6 @@ function App() {
             <a href="#work">Work Experience</a>
             <a href="#projects">Projects</a>
             <a href="#GameGallery">Game Gallery</a>
-            <a href={resume} target="_blank" rel="noopener noreferrer">
-              Resume
-            </a>
           </div>
         )}
       </nav>
