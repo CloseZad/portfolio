@@ -14,12 +14,18 @@ import { faEnvelope, faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import Timeline from "./components/Timeline";
 import Gallery from "./components/Gallery";
 import ProjectsCarousel from "./components/ProjectsCarousel";
+import GameGallery from "./components/GameGallery";
 import "./components/ProjectsCarousel.css";
+import "./components/GameGallery.css";
 import resume from "./Updated.pdf";
 import resume2 from "./UpdatedHW.pdf";
 
 function App() {
   const [page, setPage] = useState("splash");
+  const [showQuestion, setShowQuestion] = useState(false);
+  const [questionAnswer, setQuestionAnswer] = useState("");
+  // Change this to the correct date in YYYY-MM-DD format
+  const SECRET_DATE = "2025-07-22";
 
   function GradientBackground({ children }) {
     return (
@@ -47,8 +53,8 @@ function App() {
       e.preventDefault();
       const answer = document.getElementById("password").value;
 
-      if (answer === "PERSONSPECIFIED") {
-        setPage("PERSONSPECIFIED");
+      if (answer === "Mio") {
+        setPage("Mio");
       } else {
         setPage("");
       }
@@ -167,12 +173,63 @@ function App() {
 
           <div id="GameGallery" className="section">
             <h1>Game Gallery</h1>
-            <p>
-              Coming soon! I'm porting my game gallery from my previous site.
-              This will showcase various games and interactive projects I've
-              created.
+            <p style={{ marginBottom: "40px" }}>
+              Explore my gaming experiences and screenshots from various games
+              I've played. Click on any game icon to view a collection of
+              screenshots and moments.
             </p>
+            <GameGallery />
           </div>
+        </div>
+      </GradientBackground>
+    );
+  }
+
+  function SecretComponent() {
+    return (
+      <GradientBackground>
+        <div
+          style={{
+            position: "fixed",
+            top: "20px",
+            left: "20px",
+            zIndex: 1001,
+            background: "rgba(0,0,0,0.8)",
+            padding: "10px 20px",
+            borderRadius: "8px",
+          }}
+        >
+          <button
+            onClick={() => setPage("")}
+            style={{
+              background: "none",
+              border: "none",
+              color: "white",
+              cursor: "pointer",
+              fontSize: "16px",
+              fontWeight: "bold",
+            }}
+          >
+            ← Back to Portfolio
+          </button>
+        </div>
+        <div
+          className="secret-content"
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            minHeight: "100vh",
+            textAlign: "center",
+            padding: "20px",
+            color: "white",
+          }}
+        >
+          <h1 style={{ fontSize: "3rem", marginBottom: "20px" }}>hi baby </h1>
+          <p style={{ fontSize: "1.5rem", marginBottom: "30px" }}>
+            glad u found dis
+          </p>
         </div>
       </GradientBackground>
     );
@@ -244,7 +301,8 @@ function App() {
     <>
       {page === "splash" && renderSplash()}
       {page === "" && renderPage()}
-      {page !== "" && page !== "splash" && (
+      {page === "secret" && <SecretComponent />}
+      {page !== "" && page !== "splash" && page !== "secret" && (
         <div
           style={{
             position: "fixed",
@@ -265,10 +323,93 @@ function App() {
               cursor: "pointer",
               fontSize: "16px",
               fontWeight: "bold",
+              marginBottom: "10px",
+              display: "block",
             }}
           >
             ← Back to Portfolio
           </button>
+
+          <button
+            onClick={() => setShowQuestion(!showQuestion)}
+            style={{
+              background: "rgba(255,255,255,0.1)",
+              border: "1px solid rgba(255,255,255,0.3)",
+              color: "white",
+              cursor: "pointer",
+              fontSize: "14px",
+              padding: "5px 10px",
+              borderRadius: "4px",
+              marginBottom: showQuestion ? "10px" : "0",
+            }}
+          >
+            {showQuestion ? "Hide Secret Question" : "Show Secret Question"}
+          </button>
+
+          {showQuestion && (
+            <div style={{ marginTop: "10px" }}>
+              <p
+                style={{
+                  color: "white",
+                  fontSize: "14px",
+                  marginBottom: "8px",
+                }}
+              >
+                When was our first date
+              </p>
+              <input
+                type="date"
+                value={questionAnswer}
+                onChange={(e) => setQuestionAnswer(e.target.value)}
+                placeholder="YYYY-MM-DD"
+                style={{
+                  padding: "5px 8px",
+                  borderRadius: "4px",
+                  border: "1px solid rgba(255,255,255,0.3)",
+                  background: "rgba(255,255,255,0.1)",
+                  color: "white",
+                  fontSize: "14px",
+                  width: "150px",
+                  marginRight: "8px",
+                }}
+                onKeyPress={(e) => {
+                  if (e.key === "Enter") {
+                    if (questionAnswer === SECRET_DATE) {
+                      setPage("secret");
+                      setShowQuestion(false);
+                      setQuestionAnswer("");
+                    } else {
+                      alert("Incorrect date!");
+                      setQuestionAnswer("");
+                    }
+                  }
+                }}
+              />
+              <button
+                onClick={() => {
+                  if (questionAnswer === SECRET_DATE) {
+                    setPage("secret");
+                    setShowQuestion(false);
+                    setQuestionAnswer("");
+                  } else {
+                    alert("You're not her???");
+                    setQuestionAnswer("");
+                  }
+                }}
+                style={{
+                  background: "rgba(0,255,0,0.2)",
+                  border: "1px solid rgba(0,255,0,0.5)",
+                  color: "white",
+                  cursor: "pointer",
+                  fontSize: "12px",
+                  padding: "5px 8px",
+                  borderRadius: "4px",
+                }}
+              >
+                Submit
+              </button>
+            </div>
+          )}
         </div>
       )}
     </>

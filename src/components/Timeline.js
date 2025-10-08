@@ -174,7 +174,9 @@ export default function Timeline() {
   return (
     <div style={timelineStyles.container}>
       <h1 style={timelineStyles.title}>My Career Journey</h1>
-
+      Arranged by Company, not by specific internship (multiple at a company can
+      exist) I have had a total of 6 terms of co-op. This aint my first rodeo
+      nor my 6th
       {isMobile ? (
         // Mobile Timeline - Vertical List
         <div style={timelineStyles.timelineWrapper}>
@@ -234,7 +236,6 @@ export default function Timeline() {
           ))}
         </div>
       )}
-
       {/* Selected event details */}
       {selectedEvent && (
         <div style={timelineStyles.selectedEventCard}>
@@ -249,7 +250,6 @@ export default function Timeline() {
           </div>
         </div>
       )}
-
       {!selectedEvent && (
         <div
           style={{
