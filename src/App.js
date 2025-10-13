@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { isMobile } from "react-device-detect";
 import "./App.css";
 import newvid from "./newvid.mp4";
@@ -19,11 +19,13 @@ import "./components/ProjectsCarousel.css";
 import "./components/GameGallery.css";
 import resume from "./Updated.pdf";
 import resume2 from "./UpdatedHW.pdf";
+import heartImage from "./images/heart.jpeg";
 
 function App() {
   const [page, setPage] = useState("splash");
   const [showQuestion, setShowQuestion] = useState(false);
   const [questionAnswer, setQuestionAnswer] = useState("");
+  const [showVideo, setShowVideo] = useState(false);
   // Change this to the correct date in YYYY-MM-DD format
   const SECRET_DATE = "2025-07-22";
 
@@ -185,6 +187,153 @@ function App() {
     );
   }
 
+  const What3wordsInput = useMemo(
+    () => (
+      <div style={{ marginBottom: "30px" }}>
+        <h2 style={{ fontSize: "2rem", marginBottom: "10px" }}>
+          ///what3words
+        </h2>
+        <p style={{ fontSize: "1rem", marginBottom: "20px", opacity: 0.8 }}>
+          the bench we sat in in this picture
+        </p>
+        <img
+          src={heartImage}
+          alt="Heart"
+          style={{
+            maxWidth: "400px",
+            maxHeight: "300px",
+            borderRadius: "8px",
+            marginBottom: "20px",
+            boxShadow: "0 4px 8px rgba(0,0,0,0.3)",
+          }}
+        />
+
+        {!showVideo ? (
+          <>
+            <div
+              style={{
+                display: "flex",
+                gap: "10px",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <input
+                type="text"
+                id="word1"
+                placeholder="word1"
+                style={{
+                  padding: "8px 12px",
+                  borderRadius: "4px",
+                  border: "1px solid rgba(255,255,255,0.3)",
+                  background: "rgba(255,255,255,0.1)",
+                  color: "white",
+                  fontSize: "14px",
+                  width: "100px",
+                  textAlign: "center",
+                }}
+              />
+              <span
+                style={{ color: "white", fontSize: "18px", fontWeight: "bold" }}
+              >
+                .
+              </span>
+              <input
+                type="text"
+                id="word2"
+                placeholder="word2"
+                style={{
+                  padding: "8px 12px",
+                  borderRadius: "4px",
+                  border: "1px solid rgba(255,255,255,0.3)",
+                  background: "rgba(255,255,255,0.1)",
+                  color: "white",
+                  fontSize: "14px",
+                  width: "100px",
+                  textAlign: "center",
+                }}
+              />
+              <span
+                style={{ color: "white", fontSize: "18px", fontWeight: "bold" }}
+              >
+                .
+              </span>
+              <input
+                type="text"
+                id="word3"
+                placeholder="word3"
+                style={{
+                  padding: "8px 12px",
+                  borderRadius: "4px",
+                  border: "1px solid rgba(255,255,255,0.3)",
+                  background: "rgba(255,255,255,0.1)",
+                  color: "white",
+                  fontSize: "14px",
+                  width: "100px",
+                  textAlign: "center",
+                }}
+              />
+            </div>
+            <button
+              onClick={() => {
+                const word1 = document
+                  .getElementById("word1")
+                  .value.toLowerCase();
+                const word2 = document
+                  .getElementById("word2")
+                  .value.toLowerCase();
+                const word3 = document
+                  .getElementById("word3")
+                  .value.toLowerCase();
+                const answer = `${word1}.${word2}.${word3}`;
+
+                if (answer === "kennels.fees.upholds") {
+                  setShowVideo(true);
+                } else {
+                  alert("Not quite right. Try again!");
+                  document.getElementById("word1").value = "";
+                  document.getElementById("word2").value = "";
+                  document.getElementById("word3").value = "";
+                }
+              }}
+              style={{
+                background: "rgba(0,255,0,0.2)",
+                border: "1px solid rgba(0,255,0,0.5)",
+                color: "white",
+                cursor: "pointer",
+                fontSize: "14px",
+                padding: "8px 16px",
+                borderRadius: "4px",
+                marginTop: "15px",
+              }}
+            >
+              Submit Answer
+            </button>
+          </>
+        ) : (
+          <div style={{ marginTop: "20px" }}>
+            <h3 style={{ fontSize: "1.5rem", marginBottom: "20px" }}>:D</h3>
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/R_FcuAqTAFk?si=GM7P1cyrpG5Wr9Cu"
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+              style={{
+                borderRadius: "8px",
+                boxShadow: "0 4px 8px rgba(0,0,0,0.3)",
+              }}
+            ></iframe>
+          </div>
+        )}
+      </div>
+    ),
+    [showVideo]
+  );
+
   function SecretComponent() {
     return (
       <GradientBackground>
@@ -226,10 +375,12 @@ function App() {
             color: "white",
           }}
         >
-          <h1 style={{ fontSize: "3rem", marginBottom: "20px" }}>hi baby </h1>
+          {/* <h1 style={{ fontSize: "3rem", marginBottom: "20px" }}>hi baby </h1>
           <p style={{ fontSize: "1.5rem", marginBottom: "30px" }}>
             glad u found dis
-          </p>
+          </p> */}
+
+          {What3wordsInput}
         </div>
       </GradientBackground>
     );
