@@ -10,6 +10,17 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 const projects = [
   {
     id: 1,
+    title: "PickUpTracker",
+    description:
+      "Pickup Tracker is a mobile-first web app that makes managing pickup games effortless — add teams, track who’s in play, and rotate matches automatically with “winner-stays-on” mode. Built with React, Tailwind, and Express for fast, seamless game management anywhere. Note: if server is not running, contact me to try it out.",
+    image:
+      "https://github.com/CloseZad/pickupTracker/blob/main/PickupTracker.jpeg?raw=true",
+    githubUrl: "https://github.com/CloseZad/pickupTracker",
+    liveUrl: "https://closezad.github.io/pickupTracker/",
+    technologies: ["React", "Tailwind", "Express"],
+  },
+  {
+    id: 2,
     title: "TopSpeedTracker",
     description:
       "A small app (that you can use for youself) for Assetto Corsa (racing simulator software) that tracks speed in-engine as well as your session's top speed achieved. Supports switching between imperial and metric units.",
@@ -19,7 +30,7 @@ const projects = [
     technologies: ["Python", "Assetto Corsa", "Numpy"],
   },
   {
-    id: 2,
+    id: 3,
     title: "Tales of Nuiryn",
     description:
       "In June 2020, my friends and I entered a game jam (game hackathon) hosted by the University of Waterloo's Games Institute. I was one of the lead developers on our team where we somehow won an award. Personally, I think making an RPG for a game jam is a terrible idea.",
@@ -30,7 +41,7 @@ const projects = [
     technologies: ["C#", "Unity3D", "Java"],
   },
   {
-    id: 3,
+    id: 4,
     title: "Disgraph (Hack the North 2020 Submission)",
     description:
       "Wrote script functions for a discord bot that generates graphs from user input data based on graph style choice and details.",
@@ -41,7 +52,7 @@ const projects = [
     technologies: ["Python", "Matplotlib", "Discord API"],
   },
   {
-    id: 4,
+    id: 5,
     title: "chAD (EngHacks 2021 Submission)",
     description:
       "Designed social media monetization system via a discord bot that generates custom ads based on wishes of the server's owner. Curated for businesses looking to market in new spaces, and server owners looking to make ad-revenue.",
