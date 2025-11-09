@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/portfolio/static/css/main.e2c176be.css",
-    "main.js": "/portfolio/static/js/main.c41789aa.js",
+    "main.js": "/portfolio/static/js/main.a9ebecf2.js",
     "static/js/453.1407b060.chunk.js": "/portfolio/static/js/453.1407b060.chunk.js",
     "static/media/newvid.mp4": "/portfolio/static/media/newvid.451561ea94e66207c189.mp4",
     "static/media/2022-01-22_20.03.12.png": "/portfolio/static/media/2022-01-22_20.03.12.c2b054cf7fafda8020c0.c2b054cf7fafda8020c0.png",
@@ -32,15 +32,15 @@
     "static/media/image1.jpg": "/portfolio/static/media/image1.bb103e5c586d221436ea.bb103e5c586d221436ea.jpg",
     "static/media/maserati.jpg": "/portfolio/static/media/maserati.fe0aa1b0c49534b16fdb.fe0aa1b0c49534b16fdb.jpg",
     "static/media/20221113-004141-shuto_revival_project_beta-ks_glickenhaus_scg003.jpg": "/portfolio/static/media/20221113-004141-shuto_revival_project_beta-ks_glickenhaus_scg003.7acd3101f62a140deb15.7acd3101f62a140deb15.jpg",
-    "static/media/Updated.pdf": "/portfolio/static/media/Updated.8c904ce4e336a8adc3b0.pdf",
     "static/media/UpdatedHW.pdf": "/portfolio/static/media/UpdatedHW.11e0db23659646808606.pdf",
+    "static/media/Updated.pdf": "/portfolio/static/media/Updated.0477c8ebd14705b3bfe3.pdf",
     "index.html": "/portfolio/index.html",
     "main.e2c176be.css.map": "/portfolio/static/css/main.e2c176be.css.map",
-    "main.c41789aa.js.map": "/portfolio/static/js/main.c41789aa.js.map",
+    "main.a9ebecf2.js.map": "/portfolio/static/js/main.a9ebecf2.js.map",
     "453.1407b060.chunk.js.map": "/portfolio/static/js/453.1407b060.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e2c176be.css",
-    "static/js/main.c41789aa.js"
+    "static/js/main.a9ebecf2.js"
   ]
 }
