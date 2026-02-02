@@ -5,18 +5,19 @@ import {
   faChevronRight,
   faExternalLinkAlt,
 } from "@fortawesome/free-solid-svg-icons";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faGithub, faYoutube } from "@fortawesome/free-brands-svg-icons";
 
 const projects = [
   {
     id: 1,
     title: "PickUpTracker",
     description:
-      "Pickup Tracker is a mobile-first web app that makes managing pickup games effortless — add teams, track who’s in play, and rotate matches automatically with “winner-stays-on” mode. Built with React, Tailwind, and Express for fast, seamless game management anywhere. Note: if server is not running, contact me to try it out.",
+      "Pickup Tracker is a mobile-first web app that makes managing pickup games effortless — add teams, track who’s in play, and rotate matches automatically with different rulesets. Built with React, Tailwind, and Express for fast, seamless game management anywhere.",
     image:
-      "https://github.com/CloseZad/pickupTracker/blob/main/PickupTracker.jpeg?raw=true",
+      "https://github.com/CloseZad/portfolio/blob/main/src/images/pickupDemo.jpg?raw=true",
     githubUrl: "https://github.com/CloseZad/pickupTracker",
     liveUrl: "https://closezad.github.io/pickupTracker/",
+    videoUrl: "https://www.youtube.com/shorts/ztH5-Wmqh4s", // No video for this one
     technologies: ["React", "Tailwind", "Express"],
   },
   {
@@ -24,9 +25,11 @@ const projects = [
     title: "TopSpeedTracker",
     description:
       "A small app (that you can use for youself) for Assetto Corsa (racing simulator software) that tracks speed in-engine as well as your session's top speed achieved. Supports switching between imperial and metric units.",
-    image: "/Screenshot 2025-06-30 at 1.03.43 AM.png",
+    image:
+      "https://github.com/CloseZad/portfolio/blob/main/src/images/AssettoCorsa/image2.png?raw=true",
     githubUrl: "https://github.com/CloseZad/TopSpeedTracker",
-    liveUrl: "https://youtu.be/hLxgE1tyIVA",
+    liveUrl: null, // Moved the youtube link to videoUrl below
+    videoUrl: "https://youtu.be/hLxgE1tyIVA", // New video field
     technologies: ["Python", "Assetto Corsa", "Numpy"],
   },
   {
@@ -38,6 +41,7 @@ const projects = [
       "https://github.com/CloseZad/oldPortfolio/blob/main/src/images/Winner.jpg?raw=true",
     githubUrl: "https://github.com/CloseZad/GameJam2020-WON-AWARD-",
     liveUrl: null,
+    videoUrl: null,
     technologies: ["C#", "Unity3D", "Java"],
   },
   {
@@ -49,6 +53,7 @@ const projects = [
       "https://github.com/CloseZad/oldPortfolio/blob/main/src/images/DisGraph.png?raw=true",
     githubUrl: "https://github.com/brandonnly/HTN-2020",
     liveUrl: "https://devpost.com/software/disgraph",
+    videoUrl: null,
     technologies: ["Python", "Matplotlib", "Discord API"],
   },
   {
@@ -60,6 +65,7 @@ const projects = [
     githubUrl: "https://github.com/joonsauce/EngHack2021",
     liveUrl:
       "https://devpost.com/software/chad-the-ad-bot-for-discord-servers?ref_content=my-projects-tab&ref_feature=my_projects",
+    videoUrl: null,
     technologies: ["Python", "Discord API", "Python"],
   },
 ];
@@ -162,6 +168,7 @@ export default function ProjectsCarousel() {
             <p className="carousel-description">{currentProject.description}</p>
 
             <div className="carousel-links">
+              {/* GitHub Link */}
               <a
                 href={currentProject.githubUrl}
                 target="_blank"
@@ -171,6 +178,21 @@ export default function ProjectsCarousel() {
                 <FontAwesomeIcon icon={faGithub} />
                 View Code
               </a>
+
+              {/* Video Demo Link - NEW */}
+              {currentProject.videoUrl && (
+                <a
+                  href={currentProject.videoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="project-link video-link"
+                >
+                  <FontAwesomeIcon icon={faYoutube} />
+                  Video Demo
+                </a>
+              )}
+
+              {/* Live Link */}
               {currentProject.liveUrl && (
                 <a
                   href={currentProject.liveUrl}
@@ -179,7 +201,7 @@ export default function ProjectsCarousel() {
                   className="project-link live-link"
                 >
                   <FontAwesomeIcon icon={faExternalLinkAlt} />
-                  Live Demo
+                  Live
                 </a>
               )}
             </div>

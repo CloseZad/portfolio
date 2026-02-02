@@ -7,7 +7,7 @@ export default function Timeline() {
     {
       id: 1,
       label: "Mollymawk Software",
-      logo: "https://media.licdn.com/dms/image/v2/C4D0BAQFWtQFiXwugIg/company-logo_200_200/company-logo_200_200/0/1651645378073/soaringtasks_logo?e=1756944000&v=beta&t=FXTM2vwnq4Xjg_Us_3_lkvJLkiXgeYWjjwTlEwjZoIk",
+      logo: "https://media.licdn.com/dms/image/v2/C4D0BAQFWtQFiXwugIg/company-logo_200_200/company-logo_200_200/0/1651645378073/soaringtasks_logo?e=2147483647&v=beta&t=B6tDs_cvOdBDoa_9cRATDter7i85OxzQONkJp6Cy9iY",
       title: "Fullstack Developer",
       period: "Jan 2022 — Apr 2022",
       description:
@@ -16,7 +16,7 @@ export default function Timeline() {
     {
       id: 2,
       label: "BlackBerry",
-      logo: "https://media.licdn.com/dms/image/v2/C560BAQEHnvbvfKCsDg/company-logo_100_100/company-logo_100_100/0/1630575741184/blackberry_logo?e=1756944000&v=beta&t=cW0J3QjyquUdNMk-K11Rc66RRjSme9VIYDCKe71sz_I",
+      logo: "https://brandlogos.net/wp-content/uploads/2015/11/bbm_blackberry_messenger-logo_brandlogos.net_ykp1f-512x512.png",
       title: "SDET & Fullstack Developer",
       period: "Sep 2022 - Apr 2023, Sep 2023 - Dec 2023",
       description:
@@ -25,7 +25,7 @@ export default function Timeline() {
     {
       id: 3,
       label: "Clearpath Robotics",
-      logo: "https://media.licdn.com/dms/image/v2/C4E0BAQEn4XnXJnWkwA/company-logo_100_100/company-logo_100_100/0/1631307909174?e=1756944000&v=beta&t=EQeUqSg7OcYFjsvEUfz0NR60hnFzIc_KB8V3u8CXvZs",
+      logo: "https://www.clearpathrobotics.com/wp-content/uploads/2016/04/Clearpath-logo-1080x700.jpg",
       title: "Software Test Engineer",
       period: "May 2024 - Aug 2024",
       description:
@@ -34,11 +34,19 @@ export default function Timeline() {
     {
       id: 4,
       label: "Blair Health",
-      logo: "https://media.licdn.com/dms/image/v2/D4E0BAQEvItB3yN188Q/company-logo_100_100/B4EZZnnzLkHQAU-/0/1745495208974/blair_health_logo?e=1756944000&v=beta&t=qaTcCG2amxrZJm9_I5hXfHhOv15S2QL3EdEFah0_xQ0",
+      logo: "https://femtech.ca/wp-content/uploads/2025/05/Blair-Health-1.webp",
       title: "Software Developer",
       period: "Jan 2025 - Apr 2025",
       description:
         "Probably the hardest I've committed and worked, building Blair Health's platform from scratch. Worked with some entreprenuerial and software lead royalty, and one of the top 5 OBGYNs of the continent. Working alongside one other student, we defined the stack, built the app from scratch, and tested with real patients in some of the fastest turnaround times possible.",
+    },
+    {
+      id: 5,
+      label: "Varicent",
+      logo: "https://s8-recruiting.cdn.greenhouse.io/external_greenhouse_job_boards/logos/400/250/200/original/V-Screen-Blue.png?1724790892",
+      title: "Software Developer",
+      period: "Jan 2026 - Apr 2026",
+      description: "Currently working here, see my Resume for details",
     },
   ];
 
@@ -175,7 +183,7 @@ export default function Timeline() {
     <div style={timelineStyles.container}>
       <h1 style={timelineStyles.title}>My Career Journey</h1>
       Arranged by Company, not by specific internship (multiple at a company can
-      exist) I have had a total of 6 terms of co-op. This aint my first rodeo
+      exist) I have had a total of 7 terms of co-op. This aint my first rodeo
       nor my 6th
       {isMobile ? (
         // Mobile Timeline - Vertical List
